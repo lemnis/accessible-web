@@ -1,0 +1,100 @@
+## Screen reader results
+
+{% for stat in include.stats %}
+{% assign screenReaders = stat.results %}
+{% assign browsers = "" | split: "," %}
+{% assign spokenOutputs = "" | split: "," %}
+{% assign titles = "" | split: "," %}
+{% assign types = "" | split: "," %}
+{% assign APIs = "" | split: "," %}
+{% assign valids = "" | split: "," %}
+
+```html
+{{ stat.code }}
+```
+
+{% for screenReader in screenReaders %}
+	{% for browser in screenReader[1].browsers %}
+		{% assign browsers = browsers | push: browser %}
+
+		{% if browser[1][0].spokenOutput %}
+			{% assign spokenOutputs = spokenOutputs | push: browser[1][0].spokenOutput %}
+		{% else %}
+			{% assign spokenOutputs = spokenOutputs | push: "" %}
+		{% endif %}
+
+		{% if browser[1][0].title %}
+			{% assign titles = titles | push: browser[1][0].title %}
+		{% else %}
+			{% assign titles = titles | push: "" %}
+		{% endif %}
+
+		{% if browser[1][0].type %}
+			{% assign types = types | push: browser[1][0].type %}
+		{% else %}
+			{% assign types = types | push: "" %}
+		{% endif %}
+
+		{% if browser[1][0].API %}
+			{% assign APIs = APIs | push: browser[1][0].API %}
+		{% else %}
+			{% assign APIs = APIs | push: "" %}
+		{% endif %}
+
+		{% if browser[1][0].valid && browser[1][0].valid == true %}
+			{% assign valids = valids | push: "&check;" %}
+		{% else %}
+			{% assign valids = valids | push: "&cross;" %}
+		{% endif %}
+	{% endfor %}
+{% endfor %}
+
+<table>
+	<thead>
+		<tr>
+			<th>Screen reader</th>
+			{% for screenReader in screenReaders %}
+  				<th colspan="{{ screenReader[1].browsers | size }}">{{ screenReader[0] }} {{ screenReader[1].version }}</th>
+			{% endfor %}
+		</tr>
+		<tr>
+			<th>Browser</th>
+			{% for browser in browsers %}
+				<th>{{ browser[0] }} {{ browser[1][0].version }}</th>
+			{% endfor %}
+		</tr>
+	</thead>
+	<tbody>
+		<tr>
+			<th>Spoken output</th>
+			{% for spokenOutput in spokenOutputs %}
+				<td>{{ spokenOutput }}</td>
+			{% endfor %}
+		</tr>
+		<tr>
+			<th>Valid output</th>
+			{% for valid in valids %}
+				<td>{{ valid }}</td>
+			{% endfor %}
+		</tr>
+		<tr>
+			<th>Title</th>
+			{% for title in titles %}
+				<td>{{ title }}</td>
+			{% endfor %}
+		</tr>
+		<tr>
+			<th>Type</th>
+			{% for type in types %}
+				<td>{{ type }}</td>
+			{% endfor %}
+		</tr>
+		<tr>
+			<th>API</th>
+			{% for API in APIs %}
+				<td>{{ API }}</td>
+			{% endfor %}
+		</tr>
+	</tbody>
+</table>
+{% endfor %}

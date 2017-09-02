@@ -1,0 +1,11 @@
+entries:
+- title: Sidebar
+  levels: one
+  folders:
+
+  - title: Elements
+    output: web
+    folderitems:
+    - title: Details and Summary
+      url: /details-summary
+      output: web
