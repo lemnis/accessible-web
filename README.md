@@ -1,37 +1,20 @@
-## Welcome to GitHub Pages
+This is my personal reference of the current state of the accessible web, with suggestion how to improve my markup. You can't rely on my results, because they are seriously lacking in enough results of different screen readers and browsers.
 
-You can use the [editor on GitHub](https://github.com/lemnis/accessible-web/edit/master/README.md) to maintain and preview the content for your website in Markdown files.
+All my advised markup is based on myself, a sighted person, and documentation. So, you should decide for your self if the markup is right for you and your project.
 
-Whenever you commit to this repository, GitHub Pages will run [Jekyll](https://jekyllrb.com/) to rebuild the pages in your site, from the content in your Markdown files.
+## How to create better accessible websites?
 
-### Markdown
+* Learn about real users, e.g. with podcasts:
+    * [http://maccessibility.net/feed-podcast.rss]()
+* Read or listen to developers who have experience building with accessible sites
+    * [https://www.lullabot.com/podcasts/drupalizeme-podcast/web-accessibility-in-2017]()
+* Make sure your website is possible to navigate with a keyboard
+* Use rich snippets
+* Use enough contrast
+* Keep your site layout consistent
+* Guide the focus of the user to the correct goal
+* Give textual context to visual elements
 
-Markdown is a lightweight and easy-to-use syntax for styling your writing. It includes conventions for
+## Accessible sites are expensive!
 
-```markdown
-Syntax highlighted code block
-
-# Header 1
-## Header 2
-### Header 3
-
-- Bulleted
-- List
-
-1. Numbered
-2. List
-
-**Bold** and _Italic_ and `Code` text
-
-[Link](url) and ![Image](src)
-```
-
-For more details see [GitHub Flavored Markdown](https://guides.github.com/features/mastering-markdown/).
-
-### Jekyll Themes
-
-Your Pages site will use the layout and styles from the Jekyll theme you have selected in your [repository settings](https://github.com/lemnis/accessible-web/settings). The name of this theme is saved in the Jekyll `_config.yml` configuration file.
-
-### Support or Contact
-
-Having trouble with Pages? Check out our [documentation](https://help.github.com/categories/github-pages-basics/) or [contact support](https://github.com/contact) and we’ll help you sort it out.
+Learning something is always a slow and expensive process, when you never have taken time to learn it, it will be expensive. When you get used to write accessible code, you will notice that it will barely add extra time!
