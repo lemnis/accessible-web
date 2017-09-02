@@ -9,3 +9,6 @@ entries:
     - title: Details and Summary
       url: /details-summary
       output: web
+    - title: SVG
+      url: /svg
+      output: web

@@ -1,6 +1,7 @@
 ## Screen reader results
 
 {% for stat in include.stats %}
+
 {% assign screenReaders = stat.results %}
 {% assign browsers = "" | split: "," %}
 {% assign spokenOutputs = "" | split: "," %}
@@ -8,6 +9,10 @@
 {% assign types = "" | split: "," %}
 {% assign APIs = "" | split: "," %}
 {% assign valids = "" | split: "," %}
+
+{% if stat.title %}
+### {{ stat.title }}
+{% endif %}
 
 ```html
 {{ stat.code }}
@@ -54,7 +59,9 @@
 		<tr>
 			<th>Screen reader</th>
 			{% for screenReader in screenReaders %}
-  				<th colspan="{{ screenReader[1].browsers | size }}">{{ screenReader[0] }} {{ screenReader[1].version }}</th>
+  				<th colspan="{{ screenReader[1].browsers | size }}">
+					{{ screenReader[0] }} {{ screenReader[1].version }}
+				</th>
 			{% endfor %}
 		</tr>
 		<tr>
@@ -97,4 +104,11 @@
 		</tr>
 	</tbody>
 </table>
+
+{% if stat.remarks %}
+{% include note.html content=stat.remarks %}
+{% endif %}
+
+<hr/>
+
 {% endfor %}
