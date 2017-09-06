@@ -1,16 +1,16 @@
 ---
-title: Buttons
-tags: [formatting]
-keywords: notes, tips, cautions, warnings, admonitions
-last_updated: July 3, 2016
-summary: "You can insert notes, tips, warnings, and important alerts in your content. These notes are stored as shortcodes made available through the linksrefs.hmtl include."
-sidebar: mydoc_sidebar
+title: "Buttons, &lt;button&gt;"
+last_updated: 2 September, 2017
+summary: "WIP"
+sidebar: default
 permalink: buttons
 ---
 
+{% include custom/screen_reader_results.liquid stats=site.data.results.buttons.stats %}
+
 ## Button
 
-## Toggle Button
+### Toggle Button
 
 ```html
 <button type="button" aria-pressed="false">Test</button>

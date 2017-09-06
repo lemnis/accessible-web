@@ -1,0 +1,123 @@
+stats:
+  -
+    code: "<button>Test</button>"
+    results:
+      voiceover (macOs):
+        version: 7.0 (477.40.6)
+        browsers:
+          Chrome:
+            -
+              version: 62
+              valid: true
+              spokenOutput: Test, collapsed, disclosure triangle
+              title: Test
+              type: disclosure triangle
+              API: "Role: AXButton"
+          Safari:
+            -
+              version: 10
+              valid: true
+              spokenOutput: Test, collapsed, summary
+              title: Test
+              type: summary
+              API: "Role: AXButton <br/> Subrole: AXSummary <br/> Expanded: false"
+          Firefox:
+            -
+              version: 55
+              valid: false
+              spokenOutput: Test
+              title: Test
+              type: group
+              API: "Role: AXButton <br/> Subrole: AXSummary"
+      ChromeVox:
+        version: 53
+        browsers:
+          Chrome:
+            -
+              version: 62
+              valid: false
+              spokenOutput: Test  &raquo; content
+              title: Test
+              type: DisclosureTriangle
+              API: "Expanded: false"
+  -
+    code: '<input type="button" value="Test">'
+    results:
+      voiceover (macOs):
+        version: 7.0 (477.40.6)
+        browsers:
+          Chrome:
+            -
+              version: 62
+              valid: true
+              spokenOutput: Test, expanded, disclosure triangle &raquo; content
+              title: Test
+              type: disclosure triangle
+              API: "Role: AXButton"
+          Safari:
+            -
+              version: 10
+              valid: true
+              spokenOutput: Test, expanded, summary  &raquo; content
+              title: Test
+              type: summary
+              API: "Role: AXButton <br/> Subrole: AXSummary <br/> Expanded: true"
+          Firefox:
+            -
+              version: 55
+              valid: false
+              spokenOutput: Test  &raquo; content
+              title: Test
+              type: group
+              API: "Role: AXButton <br/> Subrole: AXSummary"
+      ChromeVox:
+        version: 53
+        browsers:
+          Chrome:
+            -
+              version: 62
+              valid: false
+              spokenOutput: Test  &raquo; content
+              title: Test
+              type: DisclosureTriangle
+              API: "Expanded: true"
+  -
+    code: "<details open>content</details>"
+    results:
+      voiceover (macOs):
+        version: 7.0 (477.40.6)
+        browsers:
+          Chrome:
+            -
+              version: 62
+              valid: false
+              spokenOutput: Details, disclosure triangle &raquo; content
+              title: Details
+              type: disclosure triangle
+              API: "Role: AXButton"
+          Safari:
+            -
+              version: 10
+              valid: true
+              spokenOutput: Details, expanded, summary  &raquo; content
+              title: Details
+              type: summary
+              API: "Role: AXButton <br/> Subrole: AXSummary <br/> Expanded: true"
+          Firefox:
+            -
+              version: 55
+              valid: false
+              spokenOutput: content &raquo; Details
+              title:
+              type: group
+              API: "Role: AXButton <br/> Subrole: AXSummary"
+      ChromeVox:
+        version: 53
+        browsers:
+          Chrome:
+            -
+              version: 62
+              valid: false
+              spokenOutput: content
+              title:
+              type: details

@@ -1,7 +1,3 @@
-## Screen reader results
-
-{% for stat in include.stats %}
-
 {% assign screenReaders = stat.results %}
 {% assign browsers = "" | split: "," %}
 {% assign spokenOutputs = "" | split: "," %}
@@ -10,13 +6,6 @@
 {% assign APIs = "" | split: "," %}
 {% assign valids = "" | split: "," %}
 
-{% if stat.title %}
-### {{ stat.title }}
-{% endif %}
-
-```html
-{{ stat.code }}
-```
 
 {% for screenReader in screenReaders %}
 	{% for browser in screenReader[1].browsers %}
@@ -59,48 +48,39 @@
 		<tr>
 			<th>Screen reader</th>
 			{% for screenReader in screenReaders %}
-  				<th colspan="{{ screenReader[1].browsers | size }}">
-					{{ screenReader[0] }} {{ screenReader[1].version }}
-				</th>
+			<th colspan="{{ screenReader[1].browsers | size }}">
+				{{ screenReader[0] }} {{ screenReader[1].version }}
+			</th>
 			{% endfor %}
 		</tr>
 		<tr>
 			<th>Browser</th>
 			{% for browser in browsers %}
-				<th>{{ browser[0] }} {{ browser[1][0].version }}</th>
+			<th>{{ browser[0] }} {{ browser[1][0].version }}</th>
 			{% endfor %}
 		</tr>
 	</thead>
 	<tbody>
 		<tr>
 			<th>Spoken output</th>
-			{% for spokenOutput in spokenOutputs %}
-				<td>{{ spokenOutput }}</td>
-			{% endfor %}
+			{% for spokenOutput in spokenOutputs %}<td>{{ spokenOutput }}</td>{% endfor %}
 		</tr>
 		<tr>
 			<th>Valid output</th>
-			{% for valid in valids %}
-				<td>{{ valid }}</td>
-			{% endfor %}
+			{% for valid in valids %}<td>{{ valid }}</td>{% endfor %}
 		</tr>
 		<tr>
 			<th>Title</th>
-			{% for title in titles %}
-				<td>{{ title }}</td>
-			{% endfor %}
+			{% for title in titles %}<td>{{ title }}</td>{% endfor %}
 		</tr>
 		<tr>
 			<th>Type</th>
-			{% for type in types %}
-				<td>{{ type }}</td>
+			{% for type in types %}<td>{{ type }}</td>
 			{% endfor %}
 		</tr>
 		<tr>
 			<th>API</th>
-			{% for API in APIs %}
-				<td>{{ API }}</td>
-			{% endfor %}
+			{% for API in APIs %}<td>{{ API }}</td>{% endfor %}
 		</tr>
 	</tbody>
 </table>
@@ -110,5 +90,3 @@
 {% endif %}
 
 <hr/>
-
-{% endfor %}

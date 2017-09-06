@@ -1,0 +1,14 @@
+## Screen reader results
+
+{% for stat in include.stats %}
+
+{% if stat.title %}
+<h3>{{ stat.title }}</h3>
+{% endif %}
+
+{% highlight html %}
+{{ stat.code }}
+{% endhighlight %}
+
+{% include custom/screen_reader_result.liquid %}
+{% endfor %}

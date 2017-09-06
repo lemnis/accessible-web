@@ -1,3 +1,9 @@
+---
+title: "[WIP] accessible web"
+sidebar: default
+permalink: index.html
+---
+
 This is my personal reference of the current state of the accessible web, with suggestion how to improve my markup. You can't rely on my results, because they are seriously lacking in enough results of different screen readers and browsers.
 
 All my advised markup is based on myself, a sighted person, and documentation. So, you should decide for your self if the markup is right for you and your project.
@@ -8,6 +14,7 @@ All my advised markup is based on myself, a sighted person, and documentation. S
     * [http://maccessibility.net/feed-podcast.rss]()
 * Read or listen to developers who have experience building with accessible sites
     * [https://www.lullabot.com/podcasts/drupalizeme-podcast/web-accessibility-in-2017]()
+    * [https://rethink.fm/podcast/episode-7-why-web-accessibility-matters/]()
 * Make sure your website is possible to navigate with a keyboard
 * Use rich snippets
 * Use enough contrast

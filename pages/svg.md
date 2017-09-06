@@ -1,5 +1,5 @@
 ---
-title: "Inline &lt;svg&gt;"
+title: "&lt;svg&gt;"
 last_updated: 2 September, 2017
 summary: "WIP"
 sidebar: default
@@ -28,7 +28,7 @@ svg[role=presentation] > g[role=img aria-label]
 {{ site.data.svg.stats[4].code}}
 ```
 
-{% include custom/screenReaderResults.liquid stats=site.data.svg.stats %}
+{% include custom/screen_reader_results.liquid stats=site.data.results.svg.stats %}
 
 ## Specifications
 

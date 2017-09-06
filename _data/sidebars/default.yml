@@ -6,6 +6,9 @@ entries:
   - title: Elements
     output: web
     folderitems:
+    - title: Buttons
+      url: /buttons
+      output: web
     - title: Details and Summary
       url: /details-summary
       output: web

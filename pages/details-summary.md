@@ -68,7 +68,7 @@ output.innerHTML = JSON.stringify(res, null, 2);
 document.currentScript.parentNode.insertBefore(output, document.currentScript.nextSibling);
 </script> -->
 
-{% include custom/screenReaderResults.liquid stats=site.data.details.stats %}
+{% include custom/screen_reader_results.liquid stats=site.data.results.details.stats %}
 
 ##  Browser support
 
@@ -79,6 +79,8 @@ document.currentScript.parentNode.insertBefore(output, document.currentScript.ne
 
 ## Specifications
 * [MDN](https://developer.mozilla.org/en-US/docs/Web/HTML/Element/details)
-* [HTML 5.1 #details](https://www.w3.org/TR/html/interactive-elements.html#the-details-element)
-* [HTML 5.1 #summary](https://www.w3.org/TR/html/interactive-elements.html#the-summary-element)
-* [WAI-ARIA #disclosure](https://www.w3.org/TR/wai-aria-practices/#disclosure)
+* [HTML 5.1 - details element](https://www.w3.org/TR/html/interactive-elements.html#the-details-element)
+* [HTML 5.1 - summary element](https://www.w3.org/TR/html/interactive-elements.html#the-summary-element)
+* [HTML Accessibility mapping - summary element](https://w3c.github.io/html-aam/#summary-element)
+* [HTML Accessibility mapping - feature implementation](https://w3c.github.io/html-aam/#summary-and-details-elements)
+* [WAI-ARIA - disclosure](https://www.w3.org/TR/wai-aria-practices/#disclosure)
