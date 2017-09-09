@@ -1,38 +1,22 @@
 ---
-layout: none
+layout: page
 permalink: test.html
+sidebar: default
 ---
 
-<!DOCTYPE html>
-<html lang="en">
-<head>
-    <meta charset="UTF-8">
-    <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <meta http-equiv="X-UA-Compatible" content="ie=edge">
-    <title>Document</title>
-    <link rel="stylesheet" href="{{ "css/syntax.css" }}">
-    <link rel="stylesheet" type="text/css" href="https://maxcdn.bootstrapcdn.com/font-awesome/4.5.0/css/font-awesome.min.css">
-    <!--<link rel="stylesheet" type="text/css" href="css/bootstrap.min.css">-->
-    <link rel="stylesheet" href="{{ site.baseurl}}/css/modern-business.css">
-    <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.7/css/bootstrap.min.css" integrity="sha384-BVYiiSIFeK1dGmJRAkycuHAHRg32OmUcww7on3RYdg4Va+PmSTsz/K68vbdEjh4u" crossorigin="anonymous">
-    <link rel="stylesheet" href="{{ site.baseurl}}/css/customstyles.css">
-    <link rel="stylesheet" href="{{ site.baseurl}}/css/boxshadowproperties.css">
-    <link rel="stylesheet" href="{{ site.baseurl}}/css/theme-blue.css">
-</head>
-<body>
-    {% for result in site.data.results %}
-        <h1>{{result[0] | capitalize }}</h1>
-        {% for stat in result[1].stats %}
-            <h2>Test: {{stat.title | capitalize }}</h2>
-            {{stat.code}}
+<h1>Tests</h1>
 
-            <h3>Code</h3>
-{% highlight html linenos %}
+{% for result in site.data.results %}
+    <h2>{{result[0] | capitalize }}</h2>
+    {% for stat in result[1].stats %}
+        <h3>{{stat.title | capitalize }}</h3>
+        {{stat.code}}
+
+        <h5>Code</h5>
+{% highlight html %}
 {{stat.code}}
 {% endhighlight %}
 
-            {% include custom/screen_reader_result.liquid %}
-        {% endfor %}
+        {% include custom/screen_reader_result.liquid %}
     {% endfor %}
-</body>
-</html>
+{% endfor %}

@@ -1,5 +1,6 @@
 stats:
   -
+    title: "Closed &lt;details>"
     code: "<details><summary>Test</summary>content</details>"
     results:
       voiceover (macOs):
@@ -41,6 +42,7 @@ stats:
               type: DisclosureTriangle
               API: "Expanded: false"
   -
+    title: "Open &lt;details>"
     code: "<details open><summary>Test</summary>content</details>"
     results:
       voiceover (macOs):
@@ -82,6 +84,7 @@ stats:
               type: DisclosureTriangle
               API: "Expanded: true"
   -
+    title: "&lt;details> with missing &lt;summary>"
     code: "<details open>content</details>"
     results:
       voiceover (macOs):
@@ -121,3 +124,14 @@ stats:
               spokenOutput: content
               title:
               type: details
+  -
+    title: "&lt;details> with fallback ARIA attributes"
+    code: |
+      <details>
+        <summary role="button" aria-expanded="true" aria-controls="some-id">
+          Test
+        </summary>
+        <div hidden>
+          ...
+        </div>
+      </details>

@@ -15,6 +15,7 @@ All my advised markup is based on myself, a sighted person, and documentation. S
 * Read or listen to developers who have experience building with accessible sites
     * [https://www.lullabot.com/podcasts/drupalizeme-podcast/web-accessibility-in-2017]()
     * [https://rethink.fm/podcast/episode-7-why-web-accessibility-matters/]()
+    * [https://www.audiosear.ch/a/182d4/episode-44--accessibility-with-steve-barnett--justin-slack]()
 * Make sure your website is possible to navigate with a keyboard
 * Use rich snippets
 * Use enough contrast

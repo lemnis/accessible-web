@@ -1,88 +1,13 @@
 stats:
   -
+    title: "&lt;button>"
     code: "<button>Test</button>"
-    results:
-      voiceover (macOs):
-        version: 7.0 (477.40.6)
-        browsers:
-          Chrome:
-            -
-              version: 62
-              valid: true
-              spokenOutput: Test, collapsed, disclosure triangle
-              title: Test
-              type: disclosure triangle
-              API: "Role: AXButton"
-          Safari:
-            -
-              version: 10
-              valid: true
-              spokenOutput: Test, collapsed, summary
-              title: Test
-              type: summary
-              API: "Role: AXButton <br/> Subrole: AXSummary <br/> Expanded: false"
-          Firefox:
-            -
-              version: 55
-              valid: false
-              spokenOutput: Test
-              title: Test
-              type: group
-              API: "Role: AXButton <br/> Subrole: AXSummary"
-      ChromeVox:
-        version: 53
-        browsers:
-          Chrome:
-            -
-              version: 62
-              valid: false
-              spokenOutput: Test  &raquo; content
-              title: Test
-              type: DisclosureTriangle
-              API: "Expanded: false"
   -
+    title: '&lt;input type="button">'
     code: '<input type="button" value="Test">'
-    results:
-      voiceover (macOs):
-        version: 7.0 (477.40.6)
-        browsers:
-          Chrome:
-            -
-              version: 62
-              valid: true
-              spokenOutput: Test, expanded, disclosure triangle &raquo; content
-              title: Test
-              type: disclosure triangle
-              API: "Role: AXButton"
-          Safari:
-            -
-              version: 10
-              valid: true
-              spokenOutput: Test, expanded, summary  &raquo; content
-              title: Test
-              type: summary
-              API: "Role: AXButton <br/> Subrole: AXSummary <br/> Expanded: true"
-          Firefox:
-            -
-              version: 55
-              valid: false
-              spokenOutput: Test  &raquo; content
-              title: Test
-              type: group
-              API: "Role: AXButton <br/> Subrole: AXSummary"
-      ChromeVox:
-        version: 53
-        browsers:
-          Chrome:
-            -
-              version: 62
-              valid: false
-              spokenOutput: Test  &raquo; content
-              title: Test
-              type: DisclosureTriangle
-              API: "Expanded: true"
   -
-    code: "<details open>content</details>"
+    title: "Toggle button"
+    code: "<button type='button' aria-pressed='false'>Test</button>"
     results:
       voiceover (macOs):
         version: 7.0 (477.40.6)
@@ -90,34 +15,214 @@ stats:
           Chrome:
             -
               version: 62
-              valid: false
-              spokenOutput: Details, disclosure triangle &raquo; content
-              title: Details
-              type: disclosure triangle
-              API: "Role: AXButton"
+              valid: true
+              spokenOutput: Test, toggle button
+              title: Test
+              type: toggle button
+              Value: 0
+              API: "Role: AXCheckbox <br /> Subrole: AXToggleButton"
           Safari:
             -
               version: 10
               valid: true
-              spokenOutput: Details, expanded, summary  &raquo; content
-              title: Details
-              type: summary
-              API: "Role: AXButton <br/> Subrole: AXSummary <br/> Expanded: true"
+              spokenOutput: Test, toggle button
+              title: Test
+              type: toggle button
+              Value: 0
+              API: "Role: AXCheckbox <br /> Subrole: AXToggle"
           Firefox:
             -
               version: 55
               valid: false
-              spokenOutput: content &raquo; Details
-              title:
+              spokenOutput: Test, button
+              title: Test
               type: group
-              API: "Role: AXButton <br/> Subrole: AXSummary"
+              API: "Role: AXButton"
       ChromeVox:
         version: 53
         browsers:
           Chrome:
             -
               version: 62
+              valid: true
+              spokenOutput: Test, button not pressed
+              title: Test
+              type: button
+              value: false
+  -
+    title: "Pressed Toggle Button"
+    code: "<button type='button' aria-pressed='true'>Test</button>"
+    results:
+      voiceover (macOs):
+        version: 7.0 (477.40.6)
+        browsers:
+          Chrome:
+            -
+              version: 62
+              valid: true
+              spokenOutput: Test, selected, toggle button
+              title: Test
+              type: toggle button
+              Value: 1
+              API: "Role: AXCheckbox <br /> Subrole: AXToggleButton"
+          Safari:
+            -
+              version: 10
+              valid: true
+              spokenOutput: Test, selected, toggle button
+              title: Test
+              type: toggle button
+              Value: 1
+              API: "Role: AXCheckbox <br /> Subrole: AXToggle"
+          Firefox:
+            -
+              version: 55
               valid: false
-              spokenOutput: content
-              title:
-              type: details
+              spokenOutput: Test, button
+              title: Test
+              type: group
+              API: "Role: AXButton"
+      ChromeVox:
+        version: 53
+        browsers:
+          Chrome:
+            -
+              version: 62
+              valid: true
+              spokenOutput: Test, button pressed
+              title: Test
+              type: button
+              value: true
+  -
+    title: Menu Button
+    code: |
+      <button type="button" aria-haspopup="true">Test</button>
+    results:
+      voiceover (macOs):
+        version: 7.0 (477.40.6)
+        browsers:
+          Chrome:
+          Chrome:
+            -
+              version: 62
+              valid: true
+              spokenOutput: Test, pop up button
+              title: Test
+              type: popup button
+              API: "Role: AXPopUpButton"
+          Safari:
+            -
+              version: 10
+              valid: true
+              spokenOutput: Test, pop up button
+              title: Test
+              type: pop up button
+              API: "Role: AXPopUpButton <br /> Has Popup: 1"
+          Firefox:
+            -
+              version: 55
+              valid: true
+              spokenOutput: Test, menu button
+              title: Test
+              type: menu button
+              API: "Role: AXMenuButton"
+      ChromeVox:
+        version: 53
+        browsers:
+          Chrome:
+            -
+              version: 62
+              valid: true
+              spokenOutput: Test, pop up button
+              title: Test
+              type: combobox
+              API: "Has popup: true"
+  -
+    title: "Menu button with open menu"
+    code: |
+      <button type="button" aria-haspopup="true" aria-expanded="true">Test</button>
+    results:
+      voiceover (macOs):
+        version: 7.0 (477.40.6)
+        browsers:
+          Chrome:
+          Chrome:
+            -
+              version: 62
+              valid: true
+              spokenOutput: Test, expanded, pop up button
+              title: Test
+              type: popup button
+              API: "Role: AXPopUpButton <br /> Expanded: true"
+          Safari:
+            -
+              version: 10
+              valid: true
+              spokenOutput: Test, expanded, pop up button
+              title: Test
+              type: pop up button
+              API: "Role: AXPopUpButton <br /> Expanded: true <br /> Has Popup: 1"
+          Firefox:
+            -
+              version: 55
+              valid: false
+              spokenOutput: Test, menu button
+              title: Test
+              type: menu button
+              API: "Role: AXMenuButton"
+      ChromeVox:
+        version: 53
+        browsers:
+          Chrome:
+            -
+              version: 62
+              valid: true
+              spokenOutput: Test, popup button expanded
+              title: Test
+              type: combobox
+              API: "Has popup: true <br/> Expanded: true"
+  -
+    code: |
+      <button type="button" aria-haspopup="true" aria-expanded="true" aria-controls="menu-1">Test</button>
+      <ul id="menu-1" role="menu">
+        <li role="menuitem">Menu item</li>
+      </ul>
+    results:
+      voiceover (macOs):
+        version: 7.0 (477.40.6)
+        browsers:
+          Chrome:
+            -
+              version: 62
+              valid: true
+              spokenOutput: Test, expanded, pop up button
+              title: Test
+              type: popup button
+              API: "Role: AXPopUpButton <br /> Expanded: true"
+          Safari:
+            -
+              version: 10
+              valid: true
+              spokenOutput: Test, expanded, pop up button
+              title: Test
+              type: pop up button
+              API: "Role: AXPopUpButton <br /> Expanded: true <br /> Has Popup: 1"
+          Firefox:
+            -
+              version: 55
+              valid: false
+              spokenOutput: Test, menu button
+              title: Test
+              type: menu button
+              API: "Role: AXMenuButton"
+      ChromeVox:
+        version: 53
+        browsers:
+          Chrome:
+            -
+              version: 62
+              valid: true
+              spokenOutput: Test, popup button expanded
+              title: Test
+              type: combobox
+              API: "Has popup: true <br/> Expanded: true"

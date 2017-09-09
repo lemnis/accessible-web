@@ -1,0 +1,7 @@
+topnav:
+- title: Topnav
+  items:
+    - title: GitHub
+      external_url: https://github.com/lemnis/accessible-web
+    - title: Test page
+      url: /test

@@ -10,7 +10,7 @@ permalink: details-summary
 
 ### Emmet
 ```css
-details>summary[role=button tabindex=0 aria-controls=content]{title}+#content[hidden=""]{content}
+details>summary[role="button"][tabindex="0"][aria-controls="content"]{title}+#content[hidden=""]{content text}
 ```
 
 ### HTML
@@ -24,49 +24,6 @@ details>summary[role=button tabindex=0 aria-controls=content]{title}+#content[hi
 	</div>
 </details>
 ```
-
-<!-- ## Your browser support
-<script>
-var res = {};
-
-var summary = document.createElement("summary");
-var details = document.createElement("details");
-details.appendChild(summary);
-
-res.detailsElementExists = Object.prototype.toString.call(details) == '[object HTMLDetailsElement]';
-res.hasOpenProperty = details.open !== undefined;
-res.hasCorrectValue = details.open === false;
-res.hasntOpenAttributeWhenClosed = !details.hasAttribute("open");
-
-var prevOpenValue = details.open;
-
-summary.addEventListener("click", console.log);
-details.addEventListener("toggle", (ev) => {
-	res.toggleEventIsTriggeredWhenClicket = true;
-});
-
-// var observer = new MutationObserver((mutations) => {
-//   mutations.forEach((mutation) => {
-//     console.log(mutation);
-//   });    
-// });
-// observer.observe(details, {attributeFilter: ["open"]});
-
-var event = document.createEvent('KeyboardEvent');
-event.initKeyEvent("keypress", true, true, null, false, false, false,  false, 32, 0);
-// summary.dispatchEvent(event);
-
-var event = document.createEvent('KeyboardEvent');
-event.initKeyEvent("keypress", true, true, null, false, false, false,  false, 13, 0);
-summary.dispatchEvent(event);
-res.hasOpenValueAfterClicked = details.open !== undefined;
-res.hasCorrectValueAfterClicked = details.open === !prevOpenValue;
-res.hasOpenAttributeAfterOpened = details.hasAttribute("open");
-
-var output = document.createElement("p");
-output.innerHTML = JSON.stringify(res, null, 2);
-document.currentScript.parentNode.insertBefore(output, document.currentScript.nextSibling);
-</script> -->
 
 {% include custom/screen_reader_results.liquid stats=site.data.results.details.stats %}
 

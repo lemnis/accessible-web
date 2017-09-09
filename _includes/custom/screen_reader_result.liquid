@@ -1,4 +1,7 @@
 {% assign screenReaders = stat.results %}
+
+{% if screenReaders %}
+
 {% assign browsers = "" | split: "," %}
 {% assign spokenOutputs = "" | split: "," %}
 {% assign titles = "" | split: "," %}
@@ -35,15 +38,19 @@
 			{% assign APIs = APIs | push: "" %}
 		{% endif %}
 
-		{% if browser[1][0].valid && browser[1][0].valid == true %}
-			{% assign valids = valids | push: "&check;" %}
+		{% if browser[1][0].valid %}
+			{% assign valids = valids | push: browser[1][0].valid %}
 		{% else %}
-			{% assign valids = valids | push: "&cross;" %}
+			{% assign valids = valids | push: "fail" %}
 		{% endif %}
 	{% endfor %}
 {% endfor %}
 
 <table>
+	<colgroup>
+		<col />
+		{% for valid in valids %}<col style="background-image:linear-gradient({% if valid == true %}rgba(0,200,0,.5), rgba(0,200,0,.5){% else %}rgba(200,0,0,.5), rgba(200,0,0,.5){% endif %})" />{% endfor %}
+	</colgroup>
 	<thead>
 		<tr>
 			<th>Screen reader</th>
@@ -67,7 +74,7 @@
 		</tr>
 		<tr>
 			<th>Valid output</th>
-			{% for valid in valids %}<td>{{ valid }}</td>{% endfor %}
+			{% for valid in valids %}<td>{% if valid == true %}&check;{% else %}&cross;{% endif %}</td>{% endfor %}
 		</tr>
 		<tr>
 			<th>Title</th>
@@ -90,3 +97,4 @@
 {% endif %}
 
 <hr/>
+{% endif %}

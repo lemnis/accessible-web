@@ -6,26 +6,33 @@ sidebar: default
 permalink: svg
 ---
 
+{% assign svg-inline =  site.data.results.svg.stats[2] %}
+{% assign svg-symbol =  site.data.results.svg.stats[4] %}
+
 ## Advised markup
 
 ## Emmet
 
-```html
-svg[role=presentation] > g[role=img aria-label]
+```css
+{{ svg-inline.emmet }}
 ```
 
-##### Symbols
+### Symbols
 
-### HTML
-
-```html
-{{ site.data.svg.stats[2].code}}
+```css
+{{ svg-symbol.emmet }}
 ```
 
-#### Symbols
+## HTML
 
 ```html
-{{ site.data.svg.stats[4].code}}
+{{ svg-inline.code }}
+```
+
+### Symbols
+
+```html
+{{ svg-symbol.code }}
 ```
 
 {% include custom/screen_reader_results.liquid stats=site.data.results.svg.stats %}
