@@ -1,0 +1,96 @@
+-
+  title: "menubar"
+  remarks: ""
+  code: |
+    <nav>
+      <menu role="menubar">
+        <li role="presentation">
+            <a href="#" role="menuitem">Page</a>
+        </li>
+        <li role="presentation">
+            <button type="button" role="menuitem" aria-expanded="false">Action</button>
+            <ul role="menu">
+              <li role="presentation">
+                <a href="#" role="menuitem">Submenu item</a>
+              </li>
+            </ul>
+        </li>
+      </menu>
+    </nav>
+  results:
+    voiceover (macOs):
+      version: 7.0 (477.40.6)
+      browsers:
+        Safari:
+          -
+            version: 10
+            valid: true
+            spokenOutput: Test group
+            title: Test
+            type: group
+            spokenOutput: |
+              menu 5 items
+
+              Menu item link, menu item 1 of 5
+              < Menu 1 item level 2
+              Sub-menu item
+              Sub-menu item, menu item
+              < Sub-menu item
+              end of menu
+
+
+              page, button 3 of 5
+              < Menu 1 item level 2
+              Sub-menu item
+              Sub-menu item, menu item
+              < Sub-menu item
+              end of menu
+
+
+              Single link > menu item 5 of 5
+    ChromeVox:
+      version: 53
+      browsers:
+        Chrome:
+          -
+            version: 62
+            valid: false
+            spokenOutput: |
+              Menu
+
+              Page, menu item 1 of 3 list item
+
+
+              Another page, menu item 1 of 3 list item
+
+
+
+              Separated page, menu item 1 of 3 list item
+-
+  title: "menu"
+  code: |
+    <!-- menu button -->
+    <button type="menu" aria-controls="popup-menu" aria-expanded="false">Menu Button</button>
+
+    <!-- menu -->
+    <menu id="popup-menu" role="menu" hidden>
+      <li role="presentation">
+          <a href="#" role="menuitem">Page</a>
+      </li>
+      <li role="presentation">
+          <a href="#" role="menuitem">Another page</a>
+      </li>
+    </menu>
+-
+  title: "old fashioned menu"
+  code: |
+    <nav>
+      <ul>
+        <li>
+          <a href="#">Page</a>
+        </li>
+        <li>
+          <a href="#">Another page</a>
+        </li>
+      </ul>
+    </nav>

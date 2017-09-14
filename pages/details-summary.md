@@ -25,7 +25,7 @@ details>summary[role="button"][tabindex="0"][aria-controls="content"]{title}+#co
 </details>
 ```
 
-{% include custom/screen_reader_results.liquid stats=site.data.results.details.stats %}
+{% include custom/screen_reader_results.liquid stats=site.data.results.details %}
 
 ##  Browser support
 

@@ -6,8 +6,8 @@ sidebar: default
 permalink: svg
 ---
 
-{% assign svg-inline =  site.data.results.svg.stats[2] %}
-{% assign svg-symbol =  site.data.results.svg.stats[4] %}
+{% assign svg-inline =  site.data.results.svg[2] %}
+{% assign svg-symbol =  site.data.results.svg[4] %}
 
 ## Advised markup
 
@@ -35,7 +35,7 @@ permalink: svg
 {{ svg-symbol.code }}
 ```
 
-{% include custom/screen_reader_results.liquid stats=site.data.results.svg.stats %}
+{% include custom/screen_reader_results.liquid stats=site.data.results.svg %}
 
 ## Specifications
 
