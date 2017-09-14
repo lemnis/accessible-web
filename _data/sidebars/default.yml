@@ -15,3 +15,6 @@ entries:
     - title: SVG
       url: /svg
       output: web
+    - title: Menu
+      url: /menu
+      output: web
