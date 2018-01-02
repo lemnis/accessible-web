@@ -8,12 +8,12 @@ sidebar: default
 
 {% for result in site.data.results %}
     <h2>{{result[0] | capitalize }}</h2>
-    {% for stat in result[1].stats %}
+    {% for stat in result[1] %}
         <h3>{{stat.title | capitalize }}</h3>
         {{stat.code}}
 
         <h5>Code</h5>
-{% highlight html %}
+{% highlight html linenos codehilite %}
 {{stat.code}}
 {% endhighlight %}
 
