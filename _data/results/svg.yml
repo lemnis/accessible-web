@@ -40,6 +40,15 @@
             title: Test
             type: img
             API: "Labeled by: title"
+    NVDA:
+      version: 2017.4
+      browsers:
+        Firefox:
+          -
+            version: 57
+            valid: true
+            spokenOutput: "Graphic Test"
+
 -
   title: "with aria-label"
   code: '<svg role="img" aria-label="Test">...</svg>'
@@ -83,6 +92,14 @@
             title: Test
             type: img
             API: "aria-label: title"
+    NVDA:
+      version: 2017.4
+      browsers:
+        Firefox:
+          -
+            version: 57
+            valid: true
+            spokenOutput: "Graphic Test"
 -
   title: "extended with aria & role"
   code: |
@@ -132,6 +149,13 @@
             title: Test
             type: img
             API: "aria-label: title"
+    NVDA:
+      version: 2017.4
+      browsers:
+        Firefox:
+          -
+            version: 57
+            valid: false
 -
   title:  "symbols"
   code: |
@@ -179,6 +203,13 @@
             valid: false
             spokenOutput: image
             type: img
+    NVDA:
+      version: 2017.4
+      browsers:
+        Firefox:
+          -
+            version: 57
+            valid: false  
 -
   title:  "symbols extend with role"
   code: |
@@ -234,3 +265,11 @@
             title: Test
             type: img
             API: "Labeled by: title"
+    NVDA:
+      version: 2017.4
+      browsers:
+        Firefox:
+          -
+            version: 57
+            valid: true
+            spokenOutput: "Graphic Test"
