@@ -4,4 +4,4 @@ topnav:
     - title: GitHub
       external_url: https://github.com/lemnis/accessible-web
     - title: Test page
-      url: accessible-web/test
+      url: /test
