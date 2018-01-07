@@ -1,47 +1,32 @@
-{% assign screenReaders = stat.results %}
+{% assign screenreaders = stat.results %}
 
-{% if screenReaders %}
+{% if screenreaders %}
 
 {% assign browsers = "" | split: "," %}
-{% assign spokenOutputs = "" | split: "," %}
-{% assign titles = "" | split: "," %}
-{% assign types = "" | split: "," %}
-{% assign APIs = "" | split: "," %}
+{% assign outputs = "" | split: "," %}
 {% assign valids = "" | split: "," %}
 
+{% for screenreader in screenreaders %}
+	{% for readerVersion in screenreader[1] %}
+		{% if forloop.last %}
+			{% for browser in readerVersion[1] %}
+				{% assign browsers = browsers | push: browser %}
+				{% for browserVersion in browser[1] %}
+					{% if forloop.last %}
+						{% if browserVersion[1].output %}
+							{% assign outputs = outputs | push: browserVersion[1].output %}
+						{% else %}
+							{% assign outputs = outputs | push: "" %}
+						{% endif %}
 
-{% for screenReader in screenReaders %}
-	{% for browser in screenReader[1].browsers %}
-		{% assign browsers = browsers | push: browser %}
-
-		{% if browser[1][0].spokenOutput %}
-			{% assign spokenOutputs = spokenOutputs | push: browser[1][0].spokenOutput %}
-		{% else %}
-			{% assign spokenOutputs = spokenOutputs | push: "" %}
-		{% endif %}
-
-		{% if browser[1][0].title %}
-			{% assign titles = titles | push: browser[1][0].title %}
-		{% else %}
-			{% assign titles = titles | push: "" %}
-		{% endif %}
-
-		{% if browser[1][0].type %}
-			{% assign types = types | push: browser[1][0].type %}
-		{% else %}
-			{% assign types = types | push: "" %}
-		{% endif %}
-
-		{% if browser[1][0].API %}
-			{% assign APIs = APIs | push: browser[1][0].API %}
-		{% else %}
-			{% assign APIs = APIs | push: "" %}
-		{% endif %}
-
-		{% if browser[1][0].valid %}
-			{% assign valids = valids | push: browser[1][0].valid %}
-		{% else %}
-			{% assign valids = valids | push: "fail" %}
+						{% if browserVersion[1].valid %}
+							{% assign valids = valids | push: browserVersion[1].valid %}
+						{% else %}
+							{% assign valids = valids | push: "fail" %}
+						{% endif %}
+					{% endif %}
+				{% endfor %}
+			{% endfor %}
 		{% endif %}
 	{% endfor %}
 {% endfor %}
@@ -54,40 +39,35 @@
 	<thead>
 		<tr>
 			<th>Screen reader</th>
-			{% for screenReader in screenReaders %}
-			<th colspan="{{ screenReader[1].browsers | size }}">
-				{{ screenReader[0] }} {{ screenReader[1].version }}
-			</th>
+			{% for screenreader in screenreaders %}
+
+				{% for version in screenreader[1] %}
+					{% if forloop.last %}
+						<th colspan="{{version[1] | size}}">
+							{{ screenreader[0] }} {{ version[0] }}
+						</th>
+					{% endif %}
+				{% endfor %}
 			{% endfor %}
 		</tr>
 		<tr>
 			<th>Browser</th>
 			{% for browser in browsers %}
-			<th>{{ browser[0] }} {{ browser[1][0].version }}</th>
+				<th>
+					{{ browser[0] }}
+					{% for version in browser[1] %}
+						{% if forloop.last %}
+							{{ version[0] }}
+						{% endif %}
+					{% endfor %}
+				</th>
 			{% endfor %}
 		</tr>
 	</thead>
 	<tbody>
 		<tr>
 			<th>Spoken output</th>
-			{% for spokenOutput in spokenOutputs %}<td>{{ spokenOutput }}</td>{% endfor %}
-		</tr>
-		<tr>
-			<th>Valid output</th>
-			{% for valid in valids %}<td>{% if valid == true %}&check;{% else %}&cross;{% endif %}</td>{% endfor %}
-		</tr>
-		<tr>
-			<th>Title</th>
-			{% for title in titles %}<td>{{ title }}</td>{% endfor %}
-		</tr>
-		<tr>
-			<th>Type</th>
-			{% for type in types %}<td>{{ type }}</td>
-			{% endfor %}
-		</tr>
-		<tr>
-			<th>API</th>
-			{% for API in APIs %}<td>{{ API }}</td>{% endfor %}
+			{% for output in outputs %}<td>{{output}}</td>{% endfor %}
 		</tr>
 	</tbody>
 </table>

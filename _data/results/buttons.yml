@@ -9,177 +9,115 @@
   code: "<button type='button' aria-pressed='false'>Test</button>"
   results:
     voiceover (macOs):
-      version: 7.0 (477.40.6)
-      browsers:
+      7.0 (477.40.6):
         Chrome:
-          -
-            version: 62
-            valid: true
-            spokenOutput: Test, toggle button
-            title: Test
-            type: toggle button
-            Value: 0
-            API: "Role: AXCheckbox <br /> Subrole: AXToggleButton"
+          62: { valid: true, output: "Test, toggle button" }
         Safari:
-          -
-            version: 10
-            valid: true
-            spokenOutput: Test, toggle button
-            title: Test
-            type: toggle button
-            Value: 0
-            API: "Role: AXCheckbox <br /> Subrole: AXToggle"
+          10: { valid: true, output: "Test, toggle button" }
         Firefox:
-          -
-            version: 55
-            valid: false
-            spokenOutput: Test, button
-            title: Test
-            type: group
-            API: "Role: AXButton"
+          55: { valid: false, output: "Test, button" }
     ChromeVox:
-      version: 53
-      browsers:
+      53:
         Chrome:
-          -
-            version: 62
-            valid: true
-            spokenOutput: Test, button not pressed
-            title: Test
-            type: button
-            value: false
+          62: { valid: true, output: "Test, button not pressed" }
+    NVDA:
+      2017.4:
+        Firefox:
+          57: { valid: true, output: "toggle button not pressed, Test" }
+        Chrome:
+          63: { valid: true, output: "toggle button not pressed, Test" }
+        Edge:
+          16: { valid: true, output: "toggle button not pressed, Test" }
+        IE:
+          11: { valid: false, output: "button, Test" }
+    Narrator:
+      10.0.16299.15:
+        Edge:
+          16: { valid: true, output: "off, Test, button" }
+        IE:
+          11: { valid: true, output: "off, Test, button" }
 -
   title: "Pressed Toggle Button"
   code: "<button type='button' aria-pressed='true'>Test</button>"
   results:
     voiceover (macOs):
-      version: 7.0 (477.40.6)
+      7.0 (477.40.6):
       browsers:
         Chrome:
-          -
-            version: 62
-            valid: true
-            spokenOutput: Test, selected, toggle button
-            title: Test
-            type: toggle button
-            Value: 1
-            API: "Role: AXCheckbox <br /> Subrole: AXToggleButton"
+          62: { valid: true, output: "Test, selected, toggle button" }
         Safari:
-          -
-            version: 10
-            valid: true
-            spokenOutput: Test, selected, toggle button
-            title: Test
-            type: toggle button
-            Value: 1
-            API: "Role: AXCheckbox <br /> Subrole: AXToggle"
+          10: { valid: true, output: "Test, toggle button" }
         Firefox:
-          -
-            version: 55
-            valid: false
-            spokenOutput: Test, button
-            title: Test
-            type: group
-            API: "Role: AXButton"
+          55: { valid: false, output: "Test, button" }
     ChromeVox:
-      version: 53
-      browsers:
+      53:
         Chrome:
-          -
-            version: 62
-            valid: true
-            spokenOutput: Test, button pressed
-            title: Test
-            type: button
-            value: true
+          62: { valid: true, output: "Test, button pressed" }
+    NVDA:
+      2017.4:
+        Firefox:
+          57: { valid: true, output: "toggle button pressed, Test" }
+        Chrome:
+          63: { valid: true, output: "toggle button pressed, Test" }
+        Edge:
+          16: { valid: true, output: "toggle button pressed, Test" }
+        IE:
+          11: { valid: true, output: "button pressed, Test" }
 -
   title: Menu Button
   code: |
     <button type="button" aria-haspopup="true">Test</button>
   results:
     voiceover (macOs):
-      version: 7.0 (477.40.6)
-      browsers:
+      7.0 (477.40.6):
         Chrome:
-        Chrome:
-          -
-            version: 62
-            valid: true
-            spokenOutput: Test, pop up button
-            title: Test
-            type: popup button
-            API: "Role: AXPopUpButton"
+          62: { valid: true, output: "Test, pop up button" }
         Safari:
-          -
-            version: 10
-            valid: true
-            spokenOutput: Test, pop up button
-            title: Test
-            type: pop up button
-            API: "Role: AXPopUpButton <br /> Has Popup: 1"
+          10: { valid: true, output: "Test, pop up button" }
         Firefox:
-          -
-            version: 55
-            valid: true
-            spokenOutput: Test, menu button
-            title: Test
-            type: menu button
-            API: "Role: AXMenuButton"
+          55: { valid: true, output: "Test, menu button" }
     ChromeVox:
-      version: 53
-      browsers:
+      53:
         Chrome:
-          -
-            version: 62
-            valid: true
-            spokenOutput: Test, pop up button
-            title: Test
-            type: combobox
-            API: "Has popup: true"
+          62: { valid: true, output: "Test, pop up button" }
+    NVDA:
+      2017.4:
+        Firefox:
+          57: { valid: true, output: "menu button subMenu, Test" }
+        Chrome:
+          63: { valid: true, output: "menu button subMenu, Test" }
+        Edge:
+          16: { valid: false, output: "button, Test" }
+        IE:
+          11: { valid: true, output: "button subMenu, Test" }
 -
   title: "Menu button with open menu"
   code: |
     <button type="button" aria-haspopup="true" aria-expanded="true">Test</button>
   results:
     voiceover (macOs):
-      version: 7.0 (477.40.6)
-      browsers:
+      7.0 (477.40.6):
         Chrome:
-        Chrome:
-          -
-            version: 62
-            valid: true
-            spokenOutput: Test, expanded, pop up button
-            title: Test
-            type: popup button
-            API: "Role: AXPopUpButton <br /> Expanded: true"
+          62: { valid: true, output: "Test, expanded, pop up button" }
         Safari:
-          -
-            version: 10
-            valid: true
-            spokenOutput: Test, expanded, pop up button
-            title: Test
-            type: pop up button
-            API: "Role: AXPopUpButton <br /> Expanded: true <br /> Has Popup: 1"
+          10: { valid: true, output: "Test, expanded, pop up button" }
         Firefox:
-          -
-            version: 55
-            valid: false
-            spokenOutput: Test, menu button
-            title: Test
-            type: menu button
-            API: "Role: AXMenuButton"
+          55: { valid: false, output: "Test, menu button" }
     ChromeVox:
-      version: 53
-      browsers:
+      53:
         Chrome:
-          -
-            version: 62
-            valid: true
-            spokenOutput: Test, popup button expanded
-            title: Test
-            type: combobox
-            API: "Has popup: true <br/> Expanded: true"
+          62:
+            { valid: true, output: "Test, popup button expanded" }
+    NVDA:
+      2017.4:
+        Firefox:
+          57: { valid: true, output: "menu button expanded subMenu, Test" }
+        Chrome:
+          63: { valid: true, output: "menu button expanded subMenu, Test" }
+        Edge:
+          16: { valid: false, output: "button expanded, Test" }
+        IE:
+          11: { valid: true, output: "button expanded subMenu, Test" }
 -
   code: |
     <button type="button" aria-haspopup="true" aria-expanded="true" aria-controls="menu-1">Test</button>
@@ -188,40 +126,24 @@
     </ul>
   results:
     voiceover (macOs):
-      version: 7.0 (477.40.6)
-      browsers:
+      7.0 (477.40.6):
         Chrome:
-          -
-            version: 62
-            valid: true
-            spokenOutput: Test, expanded, pop up button
-            title: Test
-            type: popup button
-            API: "Role: AXPopUpButton <br /> Expanded: true"
+          62: { valid: true, output: "Test, expanded, pop up button" }
         Safari:
-          -
-            version: 10
-            valid: true
-            spokenOutput: Test, expanded, pop up button
-            title: Test
-            type: pop up button
-            API: "Role: AXPopUpButton <br /> Expanded: true <br /> Has Popup: 1"
+          10: { valid: true, output: "Test, expanded, pop up button" }
         Firefox:
-          -
-            version: 55
-            valid: false
-            spokenOutput: Test, menu button
-            title: Test
-            type: menu button
-            API: "Role: AXMenuButton"
+          55: { valid: false, output: "Test, menu button" }
     ChromeVox:
-      version: 53
-      browsers:
+      53:
         Chrome:
-          -
-            version: 62
-            valid: true
-            spokenOutput: Test, popup button expanded
-            title: Test
-            type: combobox
-            API: "Has popup: true <br/> Expanded: true"
+          62: { valid: true, output: "Test, popup button expanded" }
+    NVDA:
+      2017.4:
+        Firefox:
+          57: { valid: true, output: "menu button expanded subMenu, Test" }
+        Chrome:
+          63: { valid: true, output: "menu button expanded subMenu, Test" }
+        Edge:
+          16: { valid: true, output: "button expanded, Test" }
+        IE:
+          11: { valid: true, output: "button expanded subMenu, Test" }

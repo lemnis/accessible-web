@@ -7,143 +7,57 @@
     </details>
   results:
     voiceover (macOs):
-      version: 7.0 (477.40.6)
-      browsers:
+      7.0 (477.40.6):
         Chrome:
-          -
-            version: 62
-            valid: true
-            spokenOutput: >
-
-              Test, collapsed, disclosure triangle
-            title: Test
-            type: disclosure triangle
-            API: "Role: AXButton"
+          62: { valid: true, output: "Test, collapsed, disclosure triangle" }
         Safari:
-          -
-            version: 10
-            valid: true
-            spokenOutput: >
-
-              Test, collapsed, summary
-            title: Test
-            type: summary
-            API: "Role: AXButton <br/> Subrole: AXSummary <br/> Expanded: false"
+          10: { valid: true, output: "Test, collapsed, summary" }
         Firefox:
-          -
-            version: 55
-            valid: false
-            spokenOutput: >
-
-              Test
-            title: Test
-            type: group
-            API: "Role: AXButton <br/> Subrole: AXSummary"
+          55: { valid: false, output: "Test" }
     ChromeVox:
-      version: 53
-      browsers:
+      53:
         Chrome:
-          -
-            version: 62
-            valid: false
-            spokenOutput: |
-
-              Test
-              content
-            title: Test
-            type: DisclosureTriangle
-            API: "Expanded: false"
+          62: { valid: false, output: "Test &raquo; content" }
 -
   title: "Open &lt;details>"
   code: "<details open><summary>Test</summary>content</details>"
   results:
     voiceover (macOs):
-      version: 7.0 (477.40.6)
-      browsers:
+      7.0 (477.40.6):
         Chrome:
-          -
-            version: 62
-            valid: true
-            spokenOutput: Test, expanded, disclosure triangle &raquo; content
-            title: Test
-            type: disclosure triangle
-            API: "Role: AXButton"
+          62: { valid: true, output: "Test, expanded, disclosure triangle &raquo; content" }
         Safari:
-          -
-            version: 10
-            valid: true
-            spokenOutput: Test, expanded, summary  &raquo; content
-            title: Test
-            type: summary
-            API: "Role: AXButton <br/> Subrole: AXSummary <br/> Expanded: true"
+          10: { valid: true, output: "Test, expanded, summary &raquo; content" }
         Firefox:
-          -
-            version: 55
-            valid: false
-            spokenOutput: Test  &raquo; content
-            title: Test
-            type: group
-            API: "Role: AXButton <br/> Subrole: AXSummary"
+          55: { valid: false, output: "Test &raquo; content" }
     ChromeVox:
-      version: 53
-      browsers:
+      53:
         Chrome:
-          -
-            version: 62
-            valid: false
-            spokenOutput: Test  &raquo; content
-            title: Test
-            type: DisclosureTriangle
-            API: "Expanded: true"
+          62: { valid: false, output: "Test &raquo; content" }
 -
   title: "&lt;details> with missing &lt;summary>"
   code: "<details open>content</details>"
   results:
     voiceover (macOs):
-      version: 7.0 (477.40.6)
-      browsers:
+      7.0 (477.40.6):
         Chrome:
-          -
-            version: 62
-            valid: false
-            spokenOutput: Details, disclosure triangle &raquo; content
-            title: Details
-            type: disclosure triangle
-            API: "Role: AXButton"
+          62: { valid: false, output: "Details, disclosure triangle &raquo; content" }
         Safari:
-          -
-            version: 10
-            valid: true
-            spokenOutput: Details, expanded, summary  &raquo; content
-            title: Details
-            type: summary
-            API: "Role: AXButton <br/> Subrole: AXSummary <br/> Expanded: true"
+          10: { valid: true, output: "Details, expanded, summary &raquo; content" }
         Firefox:
-          -
-            version: 55
-            valid: false
-            spokenOutput: content &raquo; Details
-            title:
-            type: group
-            API: "Role: AXButton <br/> Subrole: AXSummary"
+          55: { valid: false, output: "content &raquo; Details" }
     ChromeVox:
-      version: 53
-      browsers:
+      53:
         Chrome:
-          -
-            version: 62
-            valid: false
-            spokenOutput: content
-            title:
-            type: details
+          62: { valid: false, output: "content" }
 -
   title: "&lt;details> with fallback ARIA attributes"
   code: |
-    <details>
-      <summary role="button" aria-expanded="true" aria-controls="some-id">
+    <div>
+      <div role="button" aria-expanded="true" aria-controls="fb-details-content">
         Test
-      </summary>
-      <div hidden>
-        ...
       </div>
-    </details>
+      <div id="fb-details-content>
+        content
+      </div>
+    </div>

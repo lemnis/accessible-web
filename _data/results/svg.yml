@@ -1,161 +1,211 @@
+# AXAPI - removed keys: Frame, Position, Size, Parent
 -
   title: Basic markup
-  code: '<svg role="img"><title>Test</title>...</svg>'
+  code: '<svg role="img"><title>Test</title><rect x="0" y="0" width="100" height="100" /></svg>'
+  APIs:
+    AXAPI:
+      version: voiceover 8.0 (562.13)
+      browsers:
+        Safari:
+          11:
+            Basic:
+              Label: Test
+              Title: ""
+              Value: ""
+              Type: group
+            Advanced:
+              Role: AXGroup
+              Subrole: Null
+        Chrome:
+          64:
+            Basic:
+              Label: ""
+              Title: Test
+              Value: ""
+              Type: image
+            Advanced:
+              Role: AXImage
+              Subrole: Null
+        Firefox:
+          57:
+            Basic:
+              Label: ""
+              Title: Test
+              Value: ""
+              Type: image
+            Advanced:
+              Role: AXImage
+              Subrole: Null
   results:
     voiceover (macOs):
-      version: 7.0 (477.40.6)
-      browsers:
+      "7.0 (477.40.6)":
         Chrome:
-          -
-            version: 62
-            valid: true
-            spokenOutput: Test, image
-            title: Test
-            type: image
-            API: "Role: AXImage"
+          62: { valid: true, output: "Test image" }
         Safari:
-          -
-            version: 10
-            valid: false
-            spokenOutput: Test group
-            title: Test
-            type: group
-            API: "Role: AXGroup"
+          10: { valid: false, output: "Test group" }
         Firefox:
-          -
-            version: 55
-            valid: true
-            spokenOutput: Test, image
-            title: Test
-            type: image
-            API: "Role: AXImage"
-    ChromeVox:
-      version: 53
-      browsers:
+          55: { valid: true, output: "Test, image" }
+      "8.0 (562.13)":
+        Safari:
+          11: {valid: false, output: "Test group" }
         Chrome:
-          -
-            version: 62
-            valid: false
-            spokenOutput: image
-            title: Test
-            type: img
-            API: "Labeled by: title"
-    NVDA:
-      version: 2017.4
-      browsers:
+          64: {valid: true, output: "Test, image" }
         Firefox:
-          -
-            version: 57
-            valid: true
-            spokenOutput: "Graphic Test"
-
+          57: { valid: true, output: "Test, image" }
+    ChromeVox:
+      53:
+        Chrome:
+          62: { valid: false, output: "image" }
+    NVDA:
+      2017.4:
+        Firefox:
+          57: { valid: true, output: "Test graphic, Test" }
+        Chrome:
+          63: { valid: true, output: "graphic, Test" }
+        Edge:
+          16: { valid: true, output: "graphic, Test" }
+        IE:
+          11: { valid: false, output: "graphic, Test, graphic, Test"}
 -
   title: "with aria-label"
-  code: '<svg role="img" aria-label="Test">...</svg>'
+  code: '<svg role="img" aria-label="Test"><rect x="0" y="0" width="100" height="100" /></svg>'
   remarks: "ChromeVox currently doesn't pronounce `<title>` or `aria-labelby` while it's visible witin the automation API"
+  APIs: 
+    MSAA:
+      Browsers: { chrome: 63 }
+      result:
+        MSAA:
+          accState: read only
+          accDescription:
+          accDefaultAction:
+          accValue:
+          accParent:
+        ARIA:
+          Role: img
+        HTML:
+          Element name: svg
+          Attributes:  
+    AXAPI:
+      Safari:
+        11:
+          Basic:
+            Label: Test
+            Title: ""
+            Value: ""
+            Type: group
+          Advanced:
+            Role: AXGroup
+            Subrole: Null
+      Chrome:
+        64:
+          Basic:
+            Label: ""
+            Title: Test
+            Value: ""
+            Type: image
+          Advanced:
+            Role: AXImage
+            Subrole: Null
+      Firefox:
+        57:
+          Basic:
+            Label: null
+            Title: Test
+            Value: ""
+            Type: image
+          Advanced:
+            Role: AXImage
+            Subrole: Null
   results:
     voiceover (macOs):
-      version: 7.0 (477.40.6)
-      browsers:
+      7.0 (477.40.6):
         Chrome:
-          -
-            version: 62
-            valid: true
-            spokenOutput: Test, image
-            title: Test
-            type: image
-            API: "Role: AXImage"
+          62: { valid: true, output: "Test, image" }
         Safari:
-          -
-            version: 10
-            valid: false
-            spokenOutput: Test group
-            title: Test
-            type: group
-            API: "Role: AXGroup"
+          10: { valid: false, output: Test group }
         Firefox:
-          -
-            version: 55
-            valid: true
-            spokenOutput: Test, image
-            title: Test
-            type: image
-            API: "Role: AXImage"
+          55: { valid: true, output: "Test, image" }
+      "8.0 (562.13)":
+        Firefox:    
+          57: { valid: true, output: "Test, image" }
     ChromeVox:
-      version: 53
-      browsers:
+      53:
         Chrome:
-          -
-            version: 62
-            valid: true
-            spokenOutput: Test, image
-            title: Test
-            type: img
-            API: "aria-label: title"
+          62: { valid: true, output: "Test, image" }
     NVDA:
-      version: 2017.4
-      browsers:
+      2017.4:
         Firefox:
-          -
-            version: 57
-            valid: true
-            spokenOutput: "Graphic Test"
+          57: { valid: true, output: "Test graphic, Test" }
+        Chrome:
+          63: { valid: true, output: "graphic, Test" }
+        Edge:
+          16: { valid: true, output: "graphic, Test" }
+        IE:
+          11: { valid: true, output: "graphic, Test"}
 -
   title: "extended with aria & role"
   code: |
     <svg role="presentation">
       <g role="img" aria-label="Test">
-      ...
+      <rect x="0" y="0" width="100" height="100" />
       </g>
     </svg>
   emmet: 'svg[role="presentation"] > g[role="img"][aria-label]'
   remarks: "Adds Safari support, but the SVG can't have `title` element as direct child of `<svg>`"
+  APIs: 
+    MSAA:
+      Browsers: { chrome: 63 }
+      result:
+        MSAA:
+          accState: normal
+          accDescription:
+          accDefaultAction:
+          accValue:
+          accParent:
+        ARIA:
+          Role: presentation
+          Attributes: null
+        HTML:
+          Element name: svg
+          Attributes:
+    AXAPI:
+      version: voiceover 8.0 (562.13)
+      browsers:
+        firefox:
+          Basic:
+            Label: Null
+            Title: Test
+            Value: ""
+            Type: image
+          Advanced: 
+            Role: AXImage
+            Subrole: Null
   results:
     voiceover (macOs):
-      version: 7.0 (477.40.6)
-      browsers:
+      7.0 (477.40.6):
         Chrome:
-          -
-            version: 62
-            valid: true
-            spokenOutput: Test, image
-            title: Test
-            type: image
-            API: "Role: AXImage"
+          62: { valid: true, output: "Test, image" }
         Safari:
-          -
-            version: 10
-            valid: true
-            spokenOutput: Test, image
-            title: Test
-            type: group
-            API: "Role: AXImage"
+          10: { valid: true, output: "Test, image" }
         Firefox:
-          -
-            version: 55
-            valid: true
-            spokenOutput: Test, image
-            title: Test
-            type: image
-            API: "Role: AXImage"
+          55: { valid: true, output: "Test, image" }
+      "8.0 (562.13)":
+        Firefox:
+          57: { valid: true, output: "Test, image" } 
     ChromeVox:
-      version: 53
-      browsers:
+      53:
         Chrome:
-          -
-            version: 62
-            valid: true
-            spokenOutput: Test, image
-            title: Test
-            type: img
-            API: "aria-label: title"
+          62: { valid: true, output: "Test, image" }
     NVDA:
-      version: 2017.4
-      browsers:
+      2017.4:
         Firefox:
-          -
-            version: 57
-            valid: false
+          57: { valid: true, output: "Test graphic, Test" }
+        Chrome:
+          63: { valid: true, output: "graphic, Test" }
+        Edge:
+          16: { valid: true, output: "graphic, Test" }
+        IE:
+          11: { valid: true, output: "graphic, Test"}
 -
   title:  "symbols"
   code: |
@@ -165,111 +215,101 @@
     <svg>
       <symbol id="r">
         <title>Test</title>
-        ...
+        <rect x="0" y="0" width="100" height="100" />
       </symbol>
     </svg>
+  APIs:
+    AXAPI:
+      version: voiceover 8.0 (562.13)
+      browsers:
+        firefox:
+          Basic:
+            Label: Null
+            Title: ""
+            Value: ""
+            Type: image
+          Advanced: 
+            Role: AXImage
+            Subrole: Null
   results:
     voiceover (macOs):
-      version: 7.0 (477.40.6)
-      browsers:
+      "7.0 (477.40.6)":
         Chrome:
-          -
-            version: 62
-            valid: false
-            spokenOutput: image
-            type: image
-            API: "Role: AXImage"
+          62: { valid: false, output: "image" }
         Safari:
-          -
-            version: 10
-            valid: true
-            spokenOutput: Test, image
-            title: Test
-            type: image
-            API: "Role: AXImage"
+          10: { valid: true, output: "Test, image" }
         Firefox:
-          -
-            version: 55
-            valid: false
-            spokenOutput: image
-            type: image
-            API: "Role: AXImage"
+          55: { valid: false, output: "image" }
+      "8.0 (562.13)":
+        Firefox:
+          57: { valid: false, output: "image" }
     ChromeVox:
-      version: 53
-      browsers:
+      53:
         Chrome:
-          -
-            version: 62
-            valid: false
-            spokenOutput: image
-            type: img
+          62: { valid: false, output: "image" }
     NVDA:
-      version: 2017.4
-      browsers:
+      2017.4:
         Firefox:
-          -
-            version: 57
-            valid: false  
+          57: { valid: false, output: blank }
+        Chrome:
+          63: { valid: false }
+        Edge:
+          16: { valid: false, output: "graphic" }
+        IE:
+          11: { valid: false }
 -
   title:  "symbols extend with role"
   code: |
     <svg role="presentation">
       <use role="img" xlink:href="#link">
-      	<title>Test</title>
+        <title>Test</title>
       </use>
     </svg>
 
     <svg hidden>
       <symbol id="link">
-        ...
+        <rect x="0" y="0" width="100" height="100" />
       </symbol>
     </svg>
   emmet: |
     svg[role="presentation"] > use[role="img"] > title
     svg[hidden=""] > symbol[id]
+  APIs:
+    AXAPI:
+      version: voiceover 8.0 (562.13)
+      browsers:
+        firefox:
+          Basic:
+            Label: Null
+            Title: Test
+            Value: ""
+            Type: image
+          Advanced: 
+            Role: AXImage
+            Subrole: Null
   results:
     voiceover (macOs):
-      version: 7.0 (477.40.6)
-      browsers:
+      7.0 (477.40.6):
         Chrome:
-          -
-            version: 62
-            valid: true
-            spokenOutput: Test, image
-            type: image
-            API: "Role: AXImage"
+          62: { valid: true, output: "Test, image" }
         Safari:
-          -
-            version: 10
-            valid: true
-            spokenOutput: Test, image
-            title: Test
-            type: image
-            API: "Role: AXImage"
+          10: { valid: true, output: "Test, image" }
         Firefox:
-          -
-            version: 55
-            valid: true
-            spokenOutput: Test, image
-            title: Test
-            type: image
-            API: "Role: AXImage"
-    ChromeVox:
-      version: 53
-      browsers:
+          55: { valid: true, output: "Test, image" }
+      "8.0 (562.13)":
         Chrome:
-          -
-            version: 62
-            valid: true
-            spokenOutput: Test, image
-            title: Test
-            type: img
-            API: "Labeled by: title"
+          57: { valid: true, output: "Test, image" }
+    ChromeVox:
+      53:
+        Chrome:
+          62: { valid: true, output: "Test, image" }
     NVDA:
-      version: 2017.4
-      browsers:
+      2017.4:
         Firefox:
-          -
-            version: 57
-            valid: true
-            spokenOutput: "Graphic Test"
+          57: { valid: true, output: "Test graphic, Test" }
+        Chrome:
+          63: { valid: true, output: "graphic, Test" }
+        Edge:
+          16: { valid: true, output: "graphic Test" }
+        IE:
+          11: { valid: true, output: "graphic, Test" }
