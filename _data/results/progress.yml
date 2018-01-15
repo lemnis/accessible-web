@@ -1,0 +1,61 @@
+-
+  title: "Basic"
+  code: "<progress min='0' max='100' value='40'></progress>"
+  APIs:
+    DevToolsA11yPanel:
+      # a.k.a. internal chrome api, follows chrome versions
+      63:
+        Value: 40
+        ROle: prgressbar
+        Minimum value: 0
+        Maximum value: 100
+        Value description: ""
+  results:
+    ChromeVox:
+      53:
+        Chrome:
+          63: { valid: false, skipped: true }
+    NVDA:
+      2017.4:
+        Chrome:
+          63: { valid: true, output: "progress bar, 40" }
+-
+  title: "Indeterminate"
+  code: "<progress></progress>"
+  results:
+    ChromeVox:
+      53:
+        Chrome:
+          62: { valid: false, skipped: true }
+    NVDA:
+      2017.4:
+        Chrome:
+          63: { valid: true, output: "progress bar", skipped: true }
+        
+-
+  title: "Modified value trough JavaScript"
+  code: "<progress min='0' max='100' value='40' onclick='this.value = 10'></progress>"
+-
+  title: "Basic with aria fallback"
+  code: "<progress role='progressbar' min='0' max='100' value='40' aria-valueNow='40'></progress>"
+  results:
+    ChromeVox:
+      53:
+        Chrome:
+          63: { valid: true, output: "Progress bar 40" }
+    NVDA:
+      2017.4:
+        Chrome:
+          63: { valid: true, output: "progress bar, 40" }
+-
+  title: "Indeterminate with aria fallback"
+  code: "<progress role='progressbar'></progress>"
+  results:
+    ChromeVox:
+      53:
+        Chrome:
+          63: { valid: true, output: "Progress bar" }
+    NVDA:
+      2017.4:
+        Chrome:
+          63: { valid: true, output: "progress bar", skipped: true }

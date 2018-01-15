@@ -1,0 +1,12 @@
+-
+  title: "Low"
+  code: "<meter min='0' max='100' low='25' optimum='15' value='10'></meter>"
+  results:
+    ChromeVox:
+      53:
+        Chrome:
+          62: { valid: false }
+    NVDA:
+      2017.4:
+        Chrome:
+          63: { valid: true, output: "progress bar" }
