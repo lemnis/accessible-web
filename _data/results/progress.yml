@@ -1,10 +1,11 @@
 -
   title: "Basic"
-  code: "<progress min='0' max='100' value='40'></progress>"
+  code: "<progress max='100' value='40'></progress>"
   APIs:
     DevToolsA11yPanel:
       # a.k.a. internal chrome api, follows chrome versions
       63:
+        Name: ""
         Value: 40
         ROle: prgressbar
         Minimum value: 0
@@ -18,10 +19,15 @@
     NVDA:
       2017.4:
         Chrome:
-          63: { valid: true, output: "progress bar, 40" }
+          63: { valid: true, output: "progress bar, 40", skipped: true  }
+        Edge:
+          16: { valid: true, output: "progress bar, 40" }
+        Firefox:
+          57: { valid: true, output: "progress bar, 40%" }
 -
   title: "Indeterminate"
-  code: "<progress></progress>"
+  code: "<progress tabindex=0></progress>"
+  remarks: "Decide if skipping the element is preferred"
   results:
     ChromeVox:
       53:
@@ -31,13 +37,29 @@
       2017.4:
         Chrome:
           63: { valid: true, output: "progress bar", skipped: true }
-        
+        Edge:
+          16: { valid: false, output: "progress bar 0" }    
+        Firefox:
+          57: { valid: true, output: "progress bar half checked", skipped: true }
 -
-  title: "Modified value trough JavaScript"
-  code: "<progress min='0' max='100' value='40' onclick='this.value = 10'></progress>"
+  title: "Overflow"
+  code: "<progress max='30' value='40'></progress>"
+  results:
+    ChromeVox:
+      53:
+        Chrome:
+          63: { valid: false, skipped: true }
+    NVDA:
+      2017.4:
+        Chrome:
+          63: { valid: true, output: "progress bar, 30", skipped: true  }
+        Edge:
+          16: { valid: false, output: "progress bar 100" }
+        Firefox:
+          57: { valid: true, output: "progress bar, 100%" }
 -
   title: "Basic with aria fallback"
-  code: "<progress role='progressbar' min='0' max='100' value='40' aria-valueNow='40'></progress>"
+  code: "<progress role='progressbar' max='100' value='40' aria-valueNow='40'></progress>"
   results:
     ChromeVox:
       53:
@@ -47,6 +69,26 @@
       2017.4:
         Chrome:
           63: { valid: true, output: "progress bar, 40" }
+        Edge:
+          16: { valid: true, output: "progress bar 40" }
+        Firefox:
+          57: { valid: true, output: "progress bar, 40"}
+-
+  title: "Overflow with aria fallback"
+  code: "<progress role='progressbar' max='30' value='40' aria-valueNow='40' aria-valueMax='30'></progress>"
+  results:
+    ChromeVox:
+      53:
+        Chrome:
+          63: { valid: true, output: "Progress bar 40 Max 30" }
+    NVDA:
+      2017.4:
+        Chrome:
+          63: { valid: false, output: "progress bar, 40" }
+        Edge:
+          16: { valid: false, output: "progress bar 133" }
+        Firefox:
+          57: { valid: false, output: "progress bar, 40"}
 -
   title: "Indeterminate with aria fallback"
   code: "<progress role='progressbar'></progress>"
@@ -54,8 +96,12 @@
     ChromeVox:
       53:
         Chrome:
-          63: { valid: true, output: "Progress bar" }
+          63: { valid: true, output: "Progress bar", skipped: true }
     NVDA:
       2017.4:
         Chrome:
           63: { valid: true, output: "progress bar", skipped: true }
+        Edge:
+          16: { valid: false, output: "progress bar 0" }
+        Firefox:
+          57: { valid: true, skipped: true, output: "progress bar half checked" }
