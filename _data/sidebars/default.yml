@@ -18,3 +18,9 @@ entries:
     - title: Menu
       url: /menu
       output: web
+    - title: Meter
+      url: /meter
+      output: web
+    - title: Progress
+      url: /progress
+      output: web

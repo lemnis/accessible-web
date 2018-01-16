@@ -57,7 +57,7 @@
       <div role="button" aria-expanded="true" aria-controls="fb-details-content">
         Test
       </div>
-      <div id="fb-details-content>
+      <div id="fb-details-content">
         content
       </div>
     </div>

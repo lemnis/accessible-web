@@ -1,6 +1,7 @@
+# I don't know why edge doesn't support overriding the role, but allows aria-valuetext
 -
-  title: "Low"
-  code: "<meter min='0' max='100' low='25' optimum='15' value='10'></meter>"
+  title: "Basic"
+  code: "<meter value='0.5'></meter>"
   results:
     ChromeVox:
       53:
@@ -9,4 +10,81 @@
     NVDA:
       2017.4:
         Chrome:
-          63: { valid: true, output: "progress bar" }
+          63: { valid: false, output: "progress bar, .5" }
+        Firefox:
+          57: { valid: false, output: "blank" }
+        Edge:
+          16: { valid: false, output: "progress bar 50" }
+    Narrator:
+      # Version based on windows version
+      10:
+        Chrome:
+          63: { valid: false, skipped: true, output: "0% progress bar" }
+        Edge:
+          16: { valid: true, output: "50% meter" }
+-
+  title: "Extended with ARIA"
+  code: |
+    <meter value='.4'
+      role='slider' aria-readonly='true' aria-valuemin='0' aria-valuemax='1' aria-valuenow='0.4'
+    ></meter>
+  remarks: "Edge doesn't work, as it doesn't allow overriding the role within an meter element"
+  results:
+    NVDA:
+      2017.4:
+        Edge:
+          16: { valid: true, output: "slider 40"  }
+    Narrator:
+      # Version based on windows version
+      10:
+        Chrome:
+          63: { valid: false, skipped: true, output: "slider at 0.400000005960465" }
+        Edge:
+          16: { valid: false, output: "meter at Good" }
+-
+  title: "Extended with ARIA including aria-valuetext"
+  code: |
+    <meter value='.4' role='slider' aria-readonly='true' aria-roledescription="score" aria-label="level"
+      aria-valuemin='0' aria-valuemax='1' aria-valuenow='0.4' aria-valuetext='40%'
+    ></meter>
+  results:
+    NVDA:
+      2017.4:
+        Edge:
+          16: { valid: true, output: "slider 40" }
+    Narrator:
+      # Version based on windows version
+      10:
+        Chrome:
+          63: { valid: true, skipped: true, output: "slider at 40%" }
+        Edge:
+          16: { valid: true, output: "meter at 40%" }
+-
+  title: "within low range"
+  code: "<meter low='0.4' value='0.2' min='0' max='1'></meter>"
+  results:
+    NVDA:
+      2017.4:
+        Edge:
+          16: { valid: false, output: "progress bar 20"}
+    Narrator:
+    # Version based on windows version
+      10:
+        Edge:
+          16: { valid: false, output: "20% meter"}
+-
+  title: "within low range extended with aria"
+  code: |
+    <meter value='.4' role='slider' aria-readonly='true'
+      aria-valuemin='0' aria-valuemax='1' aria-valuenow='0.4' aria-valuetext='low'
+    ></meter>
+  results:
+    NVDA:
+      2017.4:
+        Edge:
+          16: { valid: false, output: "slider 40" }
+    Narrator:
+    # Version based on windows version
+      10:
+        Edge:
+          16: { valid: true, output: "meter at low"}
