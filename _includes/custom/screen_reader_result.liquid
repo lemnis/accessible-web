@@ -5,6 +5,7 @@
 {% assign browsers = "" | split: "," %}
 {% assign outputs = "" | split: "," %}
 {% assign valids = "" | split: "," %}
+{% assign skips = "" | split: "," %}
 
 {% for screenreader in screenreaders %}
 	{% for readerVersion in screenreader[1] %}
@@ -17,6 +18,12 @@
 							{% assign outputs = outputs | push: browserVersion[1].output %}
 						{% else %}
 							{% assign outputs = outputs | push: "" %}
+						{% endif %}
+
+						{% if browserVersion[1].skipped %}
+							{% assign skips = skips | push: browserVersion[1].skipped %}
+						{% else %}
+							{% assign skips = skips | push: false %}
 						{% endif %}
 
 						{% if browserVersion[1].valid %}
@@ -68,6 +75,10 @@
 		<tr>
 			<th>Spoken output</th>
 			{% for output in outputs %}<td>{{output}}</td>{% endfor %}
+		</tr>
+		<tr>
+			<th>Skipped</th>
+			{% for skip in skips %}<td>{{skip}}</td>{% endfor %}
 		</tr>
 	</tbody>
 </table>

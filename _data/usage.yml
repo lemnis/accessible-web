@@ -1,0 +1,78 @@
+# Usage are rough estimates through surveys held by webaim,
+# \the key roughly stand for:
+# high: > 20%
+# medium > 10%
+# low > 1%
+1506816000:
+  # src: https://webaim.org/projects/screenreadersurvey7/
+  # 1792 reponses
+  # October 2017
+  JAWS:
+    usage: high
+    browsers:
+      IE:
+        usage: high
+      Firefox:
+        usage: medium
+      Chrome:
+        usage: low
+  NVDA:
+    usage: high
+    browsers:
+      IE:
+        usage: low
+      Firefox:
+        usage: high
+      Chrome:
+        usage: low
+  VoiceOver macOs:
+    usage: medium
+    browsers:
+      Safari:
+        usage: medium
+      Chrome:
+        usage: low
+  ZoomText: { usage: low }
+  System Access or SA To Go: { usage: low }
+  Window Eyes: { usage: low }
+  ChromeVox: { usage: low }
+  Narrator: { usage: low }
+  VoiceOver: { usage: high }
+  Talkback: { usage: medium }
+1435708800:
+  # July 2015
+  # src: https://webaim.org/projects/screenreadersurvey6/
+  # 2515 responses
+
+  JAWS:
+    usage: high
+    browsers:
+      IE:
+        usage: high
+        versions:
+          10: { usage: medium }
+      Firefox:
+        usage: low
+  NVDA:
+    usage: medium
+    browsers:
+      Firefox: { usage: medium }
+  ZoomText:
+    usage: high
+    browsers:
+      Firefox: { usage: low }
+      IE: { usage: low }
+      Chrome: { usage: low }
+  Window Eyes:
+    usage: high
+    browsers:
+      IE: { usage: medium }
+      Firefox: { usage: low }
+  VoiceOver macOs:
+    usage: low
+    browsers: 
+      Safari: { usage: low }
+  System Access: { usage: low }
+  VoiceOver: { usage: high }
+  Talkback: { usage: medium }
+  

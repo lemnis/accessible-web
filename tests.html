@@ -8,15 +8,28 @@ sidebar: default
 
 {% for result in site.data.results %}
     <h2>{{result[0] | capitalize }}</h2>
-    {% for stat in result[1] %}
+    {% for stat in result[1] %} 
+        <!-- begin test -->
         <h3>{{stat.title | capitalize }}</h3>
         {{stat.code}}
 
-        <h5>Code</h5>
+        <div aria-hidden="true">
+            <h5>Code</h5>
 {% highlight html linenos codehilite %}
 {{stat.code}}
 {% endhighlight %}
 
-        {% include custom/screen_reader_result.liquid %}
+            <!--
+            {% for api in stat.APIs %}
+                <h4>{{ api[0] }}</h4>
+                {% for browser in api[1].browsers %}
+                <pre>{{ browser | jsonify }}</pre>
+                {% endfor %}
+            {% endfor %}
+            -->
+
+            {% include custom/screen_reader_result.liquid %}
+        </div>
+        <!-- end test -->
     {% endfor %}
 {% endfor %}
