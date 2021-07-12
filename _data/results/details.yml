@@ -46,10 +46,18 @@
           10: { valid: true, output: "Details, expanded, summary &raquo; content" }
         Firefox:
           55: { valid: false, output: "content &raquo; Details" }
+      10 (767):
+        Chrome:
+          91: { valid: false, output: "Details, disclosure triangle &raquo; content" }
+        Safari:
+          14: { valid: true, output: "Details, expanded, summary &raquo; content" }
+        Firefox:
+          90: { valid: false, output: "content &raquo; Details, expanded, summary" }      
     ChromeVox:
       53:
         Chrome:
           62: { valid: false, output: "content" }
+          91: { valid: false, output: "content" }          
 -
   title: "&lt;details> with fallback ARIA attributes"
   code: |
