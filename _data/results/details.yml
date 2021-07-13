@@ -14,6 +14,9 @@
           10: { valid: true, output: "Test, collapsed, summary" }
         Firefox:
           55: { valid: false, output: "Test" }
+      10 (767):
+        Firefox:
+          90: { valid: true, output: "Test, collapsed, summary" }  
     ChromeVox:
       53:
         Chrome:
@@ -30,6 +33,9 @@
           10: { valid: true, output: "Test, expanded, summary &raquo; content" }
         Firefox:
           55: { valid: false, output: "Test &raquo; content" }
+      10 (767):
+        Firefox:
+          90: { valid: true, output: "Test, expanded, summary &raquo; content" }            
     ChromeVox:
       53:
         Chrome:
